@@ -1,0 +1,222 @@
+[data-navigation] {
+  position: fixed;
+  z-index: 10;
+  top: auto;
+  left: 0;
+  bottom: $navigation-bottom;
+  min-height: $navigation-height;
+
+  a, span {
+    border-left: solid 1px $smoke;
+    color: $primary;
+    &:first-child {
+      border-left: none;
+    }
+  }
+  a {
+    min-width: $navigation-button-width;
+    &:nth-child(2) {
+      min-width: 30vw;
+    }
+  }
+
+  span {
+    &:nth-child(3) {
+      min-width: $navigation-panel-button-width;
+    }
+  }
+
+  [data-subnavigation] {
+    min-width: $subnavigation-width;
+    bottom: 0;
+    height: auto;
+    max-height: $subnavigation-height;
+    left: 100%;
+    > [id*="navigation__"] {
+      overflow: hidden;
+    }
+    .btn-list-item {
+      border-radius: 0;
+      line-height: 1.675;
+      &:not(:first-child) {
+        margin-top: rem-calc(2);
+      }
+    }
+  }
+
+  [data-panel] {
+    left: 0;
+    width: $navigation-panel-width;
+    bottom: $navigation-height;
+    max-height: calc(100vh - #{$navigation-height + $greeting-height + $navbar-height + $footer-height});
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  [data-qr] {
+    h3, h4, h5, h6 {
+      font-size: $navigation-td-font-size;
+      text-transform: none;
+      max-width: $navigation-qr-width;
+    }
+
+    input {
+      font-size: rem-calc(10)
+    }
+  }
+
+  .ant-table-tbody > tr {
+    background-color: transparent;
+  }
+
+  .ant-table-tbody > tr > td,
+  .ant-table-content .ant-table-thead > tr > th {
+    padding-left: $navigation-panel-padding;
+    padding-right: $navigation-panel-padding;
+    border-right: none;
+    border-left: none;
+    pointer-events: none;
+  }
+  
+  .ant-table-content .ant-table-thead {
+    > tr > th {
+      /*font-size: $h3-font-size;*/
+      background: $primary;
+    }
+  }
+  .ant-table-tbody {
+    > tr > td {
+      /*font-size: $h4-font-size;*/
+      font-weight: normal;
+      text-transform: none;
+      color: $white;
+      background-color: transparent;
+    }
+  }
+
+  .ant-slider {
+    &:hover {
+      .ant-slider-rail,
+      .ant-slider-track {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .ant-slider-rail,
+  .ant-slider-track {
+    background-color: transparent;
+  }
+
+  .slick-slider[dir] {
+    .slick-slide {
+      transform: scale(0.6) translateX(60%);
+      opacity: 0;
+      pointer-events: none;
+      &.slick-current {
+        opacity: 1;
+        pointer-events: all;
+        + .slick-slide {
+          position: relative;
+          z-index: 1;
+          transform: scale(1);
+          pointer-events: all;
+          opacity: 1;
+          border-width: calc(#{$navigation-slide-border} * 0.6);
+          + .slick-slide {
+            opacity: 1;
+            transform: scale(0.6) translateX(-60%);
+            pointer-events: all;
+          }
+        }
+      }
+    }
+  }
+
+  .slick-slide {
+    height: $navigation-slide-height;
+    overflow: hidden;
+    padding: 0;
+    border: solid $navigation-slide-border $white;
+    border-radius: 0;
+    background-color: $white;
+    transform: scale(0.9375);
+    box-shadow: 2px 2px 3px rgba($black, 0.3);
+
+    div {
+      display: flex;
+      justify-content: stretch;
+      flex-direction: column;
+      align-items: stretch;
+      height: 100%;
+
+      .icon {
+        position: absolute;
+        top: calc(50% - #{rem-calc(16)});
+        left: calc(50% - #{rem-calc(16)});
+        width: rem-calc(32);
+        height: rem-calc(32);
+        color: $white;
+        pointer-events: none;
+      }
+    }
+
+    picture {
+      height: 100%;
+      [data-backgrounder] {
+        height: 100%;
+      }
+    }
+
+    img {
+      visibility: hidden;
+      height: rem-calc(260);
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-height: 100%;
+      width: 100%;
+      object-fit: cover;
+      &[placeholder] {
+        opacity: 0;
+      }
+    }
+  }
+
+  .slick-list {
+    overflow: visible;
+  }
+   
+  .slick-slider:not([dir]) {
+    .slick-cloned {
+      display: none;
+    }
+  }
+
+  .slick-slider .slick-prev, 
+  .slick-slider .slick-next {
+    position: absolute;
+    top: 100%;
+    width: auto;
+    min-width: $navigation-slider-btn-width;
+    height: auto;
+    min-height: 1.25rem;
+    appearance: none;
+    border: none;
+    background: transparent;
+    &:before {
+      content: unset;
+    }
+  }
+
+  .slick-prev {
+    left: calc(50% - #{$navigation-slider-btn-width * 2});
+  }
+
+  .slick-next {
+    right: calc(50% - #{$navigation-slider-btn-width * 2});
+  }
+}
