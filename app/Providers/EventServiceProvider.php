@@ -2,9 +2,6 @@
 
 namespace App\Providers;
 
-use App\Events\ScreenAdded;
-use App\Listeners\NotifyCMS;
-
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -20,9 +17,6 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
-        ],
-        ScreenAdded::class => [
-            NotifyCMS::class
         ]
     ];
 

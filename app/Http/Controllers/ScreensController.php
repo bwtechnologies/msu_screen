@@ -12,6 +12,6 @@ use Illuminate\Http\Request;
 class ScreensController extends Controller
 {
     public function alert(){
-        ScreenAdded::dispatch();
+        ScreenAdded::dispatch(env('APP_SCREEN','Laravel'));
     }
 }
