@@ -220,17 +220,7 @@ class Screen extends Component {
 
   componentDidMount() {
     api.get('/database')
-    .finally(() => {
-      this.resetAlert()
-      this.setState({
-        feedback: {
-          msg: 'New screen added to the System',
-          style: 'success'
-        },
-      })
-    })
 
-    //Dev Note: this next line is temporary
     this.setState({has_server: true})
 
     Echo.channel(`continents`)
