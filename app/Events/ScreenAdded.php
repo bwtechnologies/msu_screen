@@ -21,9 +21,9 @@ class ScreenAdded implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(Array $arr)
+    public function __construct(String $string = '')
     {
-        $this->screens = $arr[0];
+        $this->screens = $string;
     }
 
     /**
