@@ -4,8 +4,9 @@ namespace App\Http\Resources;
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Broadcast;
 use Auth;
-use App\Models\User;
+use App\Events\ScreenAdded;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,4 @@ use App\Models\User;
 Route::view('/', 'base');
 Route::view('/*/*/', 'base');
 
-Route::get('/database', [ScreensController::class, 'alert']);
+Route::get('/database', ScreenAdded::dispatch('Secondary Screen'));
