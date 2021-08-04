@@ -1,11 +1,9 @@
 <?php
 
+namespace App\Http\Resources;
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Auth;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
