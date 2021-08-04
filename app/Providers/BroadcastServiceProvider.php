@@ -16,10 +16,6 @@ class BroadcastServiceProvider extends ServiceProvider
     {
         Broadcast::routes();
 
-        Broadcast::channel('screens', function ($screen) {
-            return true;
-        });
-
         require base_path('routes/channels.php');
     }
 }
