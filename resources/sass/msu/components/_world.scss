@@ -38,7 +38,7 @@
               &.active {
                 &, 
                 &.suspended {
-                  path, polygon {
+                  path, polygon, polyline {
                     fill: $secondary;
                     stroke: $secondary;
                   }
@@ -49,11 +49,11 @@
 
           [data-country] {
             &.active {
-              path, polygon {
+              path, polygon, polyline {
                 fill: $primary;
               }
               &.suspended {
-                path, polygon {
+                path, polygon, polyline {
                   fill: $smoke;
                 }
               }
@@ -61,7 +61,7 @@
             &.disabled {
               cursor: not-allowed;
               pointer-events: none;
-              path, polygon {
+              path, polygon, polyline {
                 fill: $aluminum;
               }
             }
@@ -72,16 +72,16 @@
             @each $key, $color in $highlights {
               $c: color.scale($primary, $lightness: $color, $saturation: -80%);
               &.opacity-#{$key} {
-                path, polygon {
+                path, polygon, polyline {
                   fill: $c
                 }
                 &.selected {
-                  path, polygon {
+                  path, polygon, polyline {
                     fill: $secondary;
                   }
                 }
                 &.suspended {
-                  path, polygon {
+                  path, polygon, polyline {
                     fill: grayscale($c)
                   }
                 }
@@ -94,13 +94,13 @@
                 cursor: help;
               }
               &.suspended {
-                path, polygon {
+                path, polygon, polyline {
                   fill: grayscale($secondary)
                 }
                 @each $key, $color in $highlights {
                   $c: color.scale($primary, $lightness: $color, $saturation: -80%);
                   &.opacity-#{$key} {
-                    path, polygon {
+                    path, polygon, polyline {
                       fill: grayscale($c)
                     }
                   }
@@ -108,15 +108,19 @@
               }
               &:focus, 
               &:hover {
-                &[class*="opacity-"] path, 
-                &[class*="opacity-"] polygon {
-                  fill: $secondary;
-                  stroke: $secondary;
+                &[class*="opacity-"] {
+                  path, 
+                  polygon, polyline {
+                    fill: $secondary;
+                    stroke: $secondary;
+                  }
                 }
-                &.suspended path, 
-                &.suspended polygon {
-                  fill: grayscale($secondary);
-                  stroke: grayscale($secondary);
+                &.suspended {
+                  path, 
+                  polygon, polyline {
+                    fill: grayscale($secondary);
+                    stroke: grayscale($secondary);
+                  }
                 }
               }
               text, line {
@@ -135,7 +139,7 @@
           [data-country] {
             opacity: 0;
           }
-          path, polygon {
+          path, polygon, polyline {
             fill: $smoke;
           }
         }
